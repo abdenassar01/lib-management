@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Signin from "./app/features/authentication/components/signin";
 import RootLayout from "./pages/panel/root-layout";
-import ProtectedRoute from "./pages/panel/protecte-route";
+import BooksList from "./app/features/bookList/components/booksList";
 
 export const router = createBrowserRouter([
   {
@@ -17,9 +17,10 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {
-        path: "/protected",
-        element: <ProtectedRoute />,
+        path: "/books",
+        element: <BooksList />,
       },
+      
     ],
   },
 ]);

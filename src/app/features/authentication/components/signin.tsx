@@ -44,7 +44,7 @@ function Signin() {
 
   useLayoutEffect(() => {
     if (!token) return;
-    navigate("/protected");
+    navigate("/books");
   }, [token]);
 
   return (

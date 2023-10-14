@@ -7,11 +7,15 @@ import { Navigate, Outlet } from "react-router-dom";
 function RootLayout() {
   const token = useSelector(selectToken);
   return (
-    <>
-      <Header />
+    <main className="flex gap-2">
       <Sidebar />
+      <div className="flex-grow p-4">
+      <Header />
       {token ? <Outlet /> : <Navigate to="/signin" />}
-    </>
+      </div>
+      </main>
+    
+
   );
 }
 
