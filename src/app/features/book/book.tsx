@@ -138,10 +138,16 @@ function Book() {
 										</FormItem>
 									)}
 								/>
-								<CategorySelect
-									control={form.control}
-									name="category"
-								/>
+								<div className="flex flex-col items-start justify-between">
+									<FormLabel className="mt-[5px]">
+										Cover
+									</FormLabel>
+									<CategorySelect
+										control={form.control}
+										name="category"
+									/>
+									<FormMessage />
+								</div>
 							</div>
 							<div className="flex items-end gap-2">
 								<FormField
