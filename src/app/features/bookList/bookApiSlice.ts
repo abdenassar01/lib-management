@@ -9,7 +9,14 @@ export const booksApiSlice = apiSlice.injectEndpoints({
         method: "GET",
       }),
     }),
+    addBook: builder.mutation<Book[], Book>({
+      query: (book) => ({
+        url: "/books",
+        method: "POST",
+        data: { ...book },
+      }),
+    }),
   }),
 });
 
-export const { useGetBooksQuery } = booksApiSlice;
+export const { useGetBooksQuery, useAddBookMutation } = booksApiSlice;
