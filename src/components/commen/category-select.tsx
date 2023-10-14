@@ -27,28 +27,30 @@ function CategorySelect({ control, name }: Props) {
 	});
 
 	return (
-		<Select
-			onValueChange={onChange}
-			value={value}>
-			<SelectTrigger className="">
-				<SelectValue placeholder="Select a category" />
-			</SelectTrigger>
-			<SelectContent>
-				<SelectGroup>
-					<SelectLabel>Categories</SelectLabel>
-					{Object.keys(CATEGORIES).map((item) => (
-						<SelectItem
-							key={`category-${item}`}
-							value={item}>
-							{CATEGORIES[item as keyof typeof CATEGORIES]}
-						</SelectItem>
-					))}
-					<SelectLabel className="text-red-600 text-[12px]">
-						{error?.message}
-					</SelectLabel>
-				</SelectGroup>
-			</SelectContent>
-		</Select>
+		<div className="">
+			<Select
+				onValueChange={onChange}
+				value={value}>
+				<SelectTrigger className="w-[287px]">
+					<SelectValue placeholder="Select a category" />
+				</SelectTrigger>
+				<SelectContent>
+					<SelectGroup>
+						<SelectLabel>Categories</SelectLabel>
+						{Object.keys(CATEGORIES).map((item) => (
+							<SelectItem
+								key={`category-${item}`}
+								value={
+									CATEGORIES[item as keyof typeof CATEGORIES]
+								}>
+								{CATEGORIES[item as keyof typeof CATEGORIES]}
+							</SelectItem>
+						))}
+					</SelectGroup>
+				</SelectContent>
+			</Select>
+			<p className="text-red-600 text-[12px]">{error?.message}</p>
+		</div>
 	);
 }
 

@@ -23,18 +23,31 @@ import { bookSchema } from "@/types/book";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import CategorySelect from "@/components/commen/category-select";
+import { useAddBookMutation } from "../bookList/bookApiSlice";
+import { redirect } from "react-router-dom";
 
 type FormValues = z.infer<typeof bookSchema>;
 
 function Book() {
-	const onSubmit = (data: FormValues) => {
-		console.log("Data: ", data);
-	};
+	const [mutation, result] = useAddBookMutation();
+
+	console.log("Result: ", result.data);
 
 	const form = useForm<FormValues>({
 		mode: "onChange",
 		resolver: zodResolver(bookSchema),
 	});
+
+	const onSubmit = () => {
+		console.log("Submited data: ", form.getValues());
+
+		mutation(form.getValues());
+	};
+
+	if (result.isLoading) {
+		return <p className="">loading...</p>;
+	}
+	// console.log(bookSchema.safeParse(form.getValues()).error);
 
 	return (
 		<div className="w-full flex justify-center items-center">
@@ -140,7 +153,7 @@ function Book() {
 								/>
 								<div className="flex flex-col items-start justify-between">
 									<FormLabel className="mt-[5px]">
-										Cover
+										Category
 									</FormLabel>
 									<CategorySelect
 										control={form.control}
@@ -150,23 +163,6 @@ function Book() {
 								</div>
 							</div>
 							<div className="flex items-end gap-2">
-								<FormField
-									control={form.control}
-									name="cover"
-									render={({ field }) => (
-										<FormItem className="w-full">
-											<FormLabel>Cover</FormLabel>
-											<FormControl>
-												<Input
-													{...field}
-													type="file"
-													placeholder="cover"
-												/>
-											</FormControl>
-											<FormMessage />
-										</FormItem>
-									)}
-								/>
 								<Button
 									className="w-full"
 									type="submit">

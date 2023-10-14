@@ -3,9 +3,7 @@ import { STATUS } from "@/constant/status";
 import zod from "zod";
 
 export const bookSchema = zod.object({
-	id: zod.number({
-		required_error: "id is required.",
-	}),
+	id: zod.number().optional(),
 	title: zod.string({
 		required_error: "title is required.",
 	}),
@@ -19,16 +17,14 @@ export const bookSchema = zod.object({
 	status: zod
 		.enum([STATUS.AVAILABLE, STATUS.BORROWED, STATUS.OVERDUE])
 		.default(STATUS.AVAILABLE),
-	categories: zod.array(
-		zod.enum([
-			CATEGORIES.COMICS,
-			CATEGORIES.FANTAZY,
-			CATEGORIES.MYSTERY,
-			CATEGORIES.SCIENCE,
-			CATEGORIES.THRILLER,
-			CATEGORIES.YOUNG,
-		])
-	),
+	category: zod.enum([
+		CATEGORIES.COMICS,
+		CATEGORIES.FANTAZY,
+		CATEGORIES.MYSTERY,
+		CATEGORIES.SCIENCE,
+		CATEGORIES.THRILLER,
+		CATEGORIES.YOUNG,
+	]),
 });
 
 export type Book = zod.infer<typeof bookSchema>;
