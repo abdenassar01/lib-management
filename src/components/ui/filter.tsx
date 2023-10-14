@@ -1,6 +1,18 @@
 import { CheckIcon } from "@radix-ui/react-icons";
 
 import { cn } from "@/lib/utils";
+import { Popover, PopoverContent, PopoverTrigger } from "./popover";
+import { Button } from "./button";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+} from "./command";
+import { Badge } from "./badge";
 
 interface Filter<T> {
   list?: T[];
@@ -22,7 +34,6 @@ export function Filter<T>({
   options,
   list,
   disabled,
-  loading,
 }: Filter<T>) {
   const selectedValues = new Set(list);
 
