@@ -36,3 +36,6 @@ export const credentials = z.object({
 export type User = z.infer<typeof userSchema>;
 export type Credentials = z.infer<typeof credentials>;
 export type Signin = z.infer<typeof loginSchema>;
+
+
+export type UserWithRole = User & { role: typeof ROLE[keyof typeof ROLE] };

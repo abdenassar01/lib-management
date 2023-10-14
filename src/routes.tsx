@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Signin from "./app/features/authentication/components/signin";
 import RootLayout from "./pages/panel/root-layout";
 import BooksList from "./app/features/bookList/components/booksList";
+import BorrowHistory from "./app/features/borrowHistory/components/borrowHistory";
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +21,10 @@ export const router = createBrowserRouter([
         path: "/books",
         element: <BooksList />,
       },
-      
+      {
+        path: "/borrowHisory",
+        element: <BorrowHistory />,
+      },
     ],
   },
 ]);
