@@ -1,12 +1,13 @@
 import { toast } from "@/components/ui/use-toast";
 import { apiSlice } from "@/app/api/apiSlice";
 import { setCredentials } from "./loginSlice";
+import { Credentials, Signin } from "@/types/user";
 
 export const loginApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    login: builder.mutation({
-      query: (credentials: any) => ({
-        url: "/auth_token",
+    login: builder.mutation<Credentials, Signin>({
+      query: (credentials) => ({
+        url: "/signin",
         method: "POST",
         body: { ...credentials },
       }),
