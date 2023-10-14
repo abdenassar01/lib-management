@@ -3,6 +3,7 @@ import Signin from "./app/features/authentication/components/signin";
 import RootLayout from "./pages/panel/root-layout";
 import BooksList from "./app/features/bookList/components/booksList";
 import BookListBorrow from "./pages/bookList/book-list";
+import Book from "./app/features/book/book";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: "/books",
         element: <BooksList />,
+      },
+      {
+        path: "/books/add",
+        element: <Book />,
       },
     ],
   },
