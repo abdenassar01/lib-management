@@ -10,12 +10,10 @@ function RootLayout() {
     <main className="flex gap-2">
       <Sidebar />
       <div className="flex-grow p-4">
-      <Header />
-      {token ? <Outlet /> : <Navigate to="/signin" />}
+        <Header />
+        {token ? <Outlet /> : <Navigate to="/signin" />}
       </div>
-      </main>
-    
-
+    </main>
   );
 }
 

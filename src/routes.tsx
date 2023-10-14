@@ -2,11 +2,12 @@ import { createBrowserRouter } from "react-router-dom";
 import Signin from "./app/features/authentication/components/signin";
 import RootLayout from "./pages/panel/root-layout";
 import BooksList from "./app/features/bookList/components/booksList";
+import BookListBorrow from "./pages/bookList/book-list";
 
 export const router = createBrowserRouter([
   {
     index: true,
-    element: <p>This is shop </p>,
+    element: <BookListBorrow />,
   },
   {
     path: "/signin",
