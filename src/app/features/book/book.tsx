@@ -37,7 +37,7 @@ function Book() {
 	});
 
 	return (
-		<div className="w-full flex justify-center items-center">
+		<div className="w-full flex justify-center items-center mt-[50px]">
 			<Card className="w-[60%]">
 				<CardHeader>
 					<CardTitle>Add new book</CardTitle>
