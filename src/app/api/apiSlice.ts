@@ -8,7 +8,7 @@ import { toast } from "@/components/ui/use-toast";
 import { logOut } from "../features/authentication/loginSlice";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: import.meta.env.VITE_API_URL,
+  baseUrl: "http://localhost:3001",
   prepareHeaders: (headers, { getState }: any) => {
     const token = getState().login.token;
     if (token) {
