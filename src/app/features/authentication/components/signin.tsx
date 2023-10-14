@@ -48,7 +48,7 @@ function Signin() {
   }, [token]);
 
   return (
-    <Card className="w-[350px] mx-auto">
+    <Card className="w-[350px] mx-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
       <CardHeader>
         <CardTitle>Sign In</CardTitle>
         <CardDescription>
