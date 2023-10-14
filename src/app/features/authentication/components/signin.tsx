@@ -19,9 +19,16 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Signin as Login, loginSchema } from "@/types/user";
 import { useLoginMutation } from "../loginApiSlice";
+import { useLayoutEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectToken } from "../loginSelector";
+import { Loader } from "lucide-react";
 
 function Signin() {
   const [loginMutation, loginResult] = useLoginMutation();
+  const navigate = useNavigate();
+  const token = useSelector(selectToken);
 
   const methods = useForm<Login>({
     resolver: zodResolver(loginSchema),
@@ -34,6 +41,11 @@ function Signin() {
   const submit = () => {
     loginMutation(methods.getValues());
   };
+
+  useLayoutEffect(() => {
+    if (!token) return;
+    navigate("/books");
+  }, [token]);
 
   return (
     <Card className="w-[350px] mx-auto">
@@ -78,9 +90,12 @@ function Signin() {
                 )}
               />
             </div>
-            <Button type="submit" className="mt-2">
-              Sign In
-            </Button>
+            <div className="flex gap-2 items-center">
+              {loginResult?.isLoading && <Loader className="animate-spin" />}
+              <Button type="submit" className="mt-2">
+                Sign In
+              </Button>
+            </div>
           </form>
         </Form>
       </CardContent>
