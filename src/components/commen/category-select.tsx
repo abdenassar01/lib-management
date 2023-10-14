@@ -20,6 +20,7 @@ type Props = {
 function CategorySelect({ control, name }: Props) {
 	const {
 		field: { onChange, value },
+		fieldState: { error },
 	} = useController({
 		name: name,
 		control: control,
@@ -42,6 +43,9 @@ function CategorySelect({ control, name }: Props) {
 							{CATEGORIES[item as keyof typeof CATEGORIES]}
 						</SelectItem>
 					))}
+					<SelectLabel className="text-red-600 text-[12px]">
+						{error?.message}
+					</SelectLabel>
 				</SelectGroup>
 			</SelectContent>
 		</Select>
