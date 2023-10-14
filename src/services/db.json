@@ -1,0 +1,10 @@
+{
+  "users": [
+    {
+      "email": "mejjad.el.mehdi@gmail.com",
+      "password": "$2a$10$rq18YP5XuI2QCuueyePJEuCOF1nORPueEZg/kZn2vvvMtj.P.dcbS",
+      "role": "Test",
+      "id": 1
+    }
+  ]
+}
