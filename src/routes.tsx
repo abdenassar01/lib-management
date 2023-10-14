@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import ProtectedRoute from "./pages/protecte-route";
 import Home from "./pages/home";
 import Signin from "./app/features/authentication/components/signin";
+import BooksList from "./app/features/bookList/components/booksList";
 
 export const router = createBrowserRouter([
   {
@@ -10,7 +10,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/protectes",
-        element: <ProtectedRoute />,
+        element: <BooksList />,
       },
       {
         path: "/signin",
