@@ -1,6 +1,5 @@
 import { apiSlice } from "@/app/api/apiSlice";
 import { Book } from "@/types/book";
-import { User } from "@/types/user";
 import { UserBook } from "@/types/user_types";
 
 export const booksApiSlice = apiSlice.injectEndpoints({

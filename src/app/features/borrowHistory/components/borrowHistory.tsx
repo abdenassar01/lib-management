@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { useGetBooksUsersQuery } from "../../bookList/bookApiSlice";
 import { format } from "date-fns";
@@ -6,11 +5,6 @@ import { format } from "date-fns";
 
 const BorrowHistory = () => {
   const { data, isLoading } = useGetBooksUsersQuery();
-  let bookId = null;
-  let userId = null;
-  const getData = () => {
-    
-  }
 
   if (isLoading) {
     return <div>Loading...</div>;
